@@ -33,16 +33,17 @@ class App extends Component {
   };
 
   render() {
-    var currentTemp = 'Not loaded yet...';
+    var currentTemp = "Didn't load yet...";
     if (this.state.data.list) {
-      currentTemp = this.state.data.list[0].main.temp;
+      var mainTemp = this.state.data.list[0].main.temp;
+      currentTemp = `${mainTemp} C`;
     }
     return (
       <div>
         <h1>Weather</h1>
         <form onSubmit={this.fetchData}>
           <label>
-            Where do we have to find the weather fo you?
+            What is the weather like today in
             <input
               placeholder={'City, Country'}
               type="text"
@@ -53,7 +54,6 @@ class App extends Component {
         </form>
         <p className="temp-wrapper">
           <span className="temp">{currentTemp}</span>
-          <span classname="temp-symbol">'C</span>
         </p>
       </div>
     );

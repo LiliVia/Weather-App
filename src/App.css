@@ -12,10 +12,14 @@ form {
   text-align: center;
 }
 
+label {
+  font-size: 24px;
+}
+
 input {
   border: none;
   border-bottom: 1px dotted black;
-  margin-left: 0.5em;
+  margin-left: 0.7em;
   font-size: 1em;
   outline: none;
 }
@@ -31,7 +35,7 @@ input {
 }
 
 .temp {
-  font-size: 64px;
+  font-size: 34px;
 }
 
 .temp-symbol {
