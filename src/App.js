@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import xhr from 'xhr';
 
 class App extends Component {
   state = {
@@ -11,19 +10,18 @@ class App extends Component {
   fetchData = evt => {
     evt.preventDefault();
 
-    var location = encodeURIComponent(this.state.location);
+    const location = encodeURIComponent(this.state.location);
 
-    var urlPrefix = 'http://api.openweathermap.org/data/2.5/forecast?q=';
-    var urlSuffix = '&APPID=98040809559bde26b804d64b294bff4c&units=metric';
-    var url = urlPrefix + location + urlSuffix;
+    const url =
+      'http://api.openweathermap.org/data/2.5/forecast?q=' +
+      location +
+      '&APPID=98040809559bde26b804d64b294bff4c&units=metric';
 
-    var self = this;
-
-    xhr({ url: url }, function(err, data) {
-      self.setState({
-        data: JSON.parse(data.body),
+    fetch(url)
+      .then(res => res.json())
+      .then(json => {
+        this.setState({ data: json });
       });
-    });
   };
 
   changeLocation = evt => {
