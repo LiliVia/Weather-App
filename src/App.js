@@ -31,10 +31,9 @@ class App extends Component {
   };
 
   render() {
-    var currentTemp = "Didn't load yet...";
+    let currentTemp = 'Loading temp ...';
     if (this.state.data.list) {
-      var mainTemp = this.state.data.list[0].main.temp;
-      currentTemp = `${mainTemp} C`;
+      currentTemp = this.state.data.list[0].main.temp;
     }
     return (
       <div>
@@ -51,7 +50,7 @@ class App extends Component {
           </label>
         </form>
         <p className="temp-wrapper">
-          <span className="temp">{currentTemp}</span>
+          <span className="temp">{currentTemp} &deg;C</span>
         </p>
       </div>
     );
